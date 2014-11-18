@@ -1,0 +1,22 @@
+from IRread import IRread,distanceCalc
+import time as T
+while True:
+
+        r1A, r1B, r1C, r1D, r1E = IRread()
+
+        measA = distanceCalc(r1A)
+        measB = distanceCalc(r1B)
+        measC = distanceCalc(r1C)
+        measD = distanceCalc(r1D)
+        measE = distanceCalc(r1E)
+
+        print '\nReading A: ' + str(measA)
+       # print '\nReading B: ' + str(measB)
+        print '\nReading C: ' + str(measC)
+        print '\nReading D: ' + str(measD)
+       # print '\nReading E: ' + str(measE)
+
+        #print r1B
+
+        T.sleep(0.5)
+

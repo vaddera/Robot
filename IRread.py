@@ -13,16 +13,16 @@ def IRread():
 	# General purpose variables:
 	count = 0
 	samples = 20
-	voltMulti = 6.3
+	voltMulti = 5
 
 	ADC.setup()
 
 	# Reading analog inputs:
-	IR1 = ADC.read("P9_40") * voltMulti #added a voltage multiplier
-	IR2 = ADC.read("P9_39") * voltMulti
-	IR3 = ADC.read("P9_38") * voltMulti
-	IR4 = ADC.read("P9_37") * voltMulti
-	IR5 = ADC.read("P9_35") * voltMulti
+	IR1 = ADC.read("P9_33") * voltMulti #added a voltage multiplier
+	IR2 = ADC.read("P9_35") * voltMulti
+	IR3 = ADC.read("P9_36") * voltMulti
+	IR4 = ADC.read("P9_39") * voltMulti
+	IR5 = ADC.read("P9_37") * voltMulti
 
 	for i in range(samples):
 		count = count + 1
@@ -35,11 +35,11 @@ def IRread():
 
 		if (count == samples):
 			# Calculating the average of 20 readings:
-			avgIR1 = round(sum(IR1list) / len(IR1list),2)
-			avgIR2 = round(sum(IR2list) / len(IR2list),2)
-			avgIR3 = round(sum(IR3list) / len(IR3list),2)
-			avgIR4 = round(sum(IR4list) / len(IR4list),2)
-			avgIR5 = round(sum(IR5list) / len(IR5list),2)
+			avgIR1 = round(sum(IR1list) / len(IR1list),3)
+			avgIR2 = round(sum(IR2list) / len(IR2list),3)
+			avgIR3 = round(sum(IR3list) / len(IR3list),3)
+			avgIR4 = round(sum(IR4list) / len(IR4list),3)
+			avgIR5 = round(sum(IR5list) / len(IR5list),3)
 			
 			# Clearing each list:
 			IR1list = []
@@ -56,7 +56,7 @@ def distanceCalc(volt):
 	return (41.543 * m.pow((volt + 0.30221), -1.5281))
 
 	
-''' Main code: '''
+''' Main code 
 
 while True:
 
@@ -69,9 +69,12 @@ while True:
 	measE = distanceCalc(r1E)
 
 	print '\nReading A: ' + str(measA)
-	print '\nReading B: ' + str(measB)
+	#print '\nReading B: ' + str(measB)
 	print '\nReading C: ' + str(measC)
 	print '\nReading D: ' + str(measD)
-	print '\nReading E: ' + str(measE)
+	#print '\nReading E: ' + str(measE)
+	
+	#print r1B
 	
 	T.sleep(0.5)
+'''

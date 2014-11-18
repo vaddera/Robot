@@ -1,0 +1,19 @@
+import Adafruit_BBIO.PWM as PWM
+import Adafruit_BBIO.GPIO as GPIO
+from motorControl import forward,backward, stop, rightb_delay, leftb_delay
+
+import time
+
+forward()
+time.sleep(1)
+stop()
+backward()
+time.sleep(1)
+stop()
+rightb_delay(0.5)
+time.sleep(1)
+stop()
+leftb_delay(0.5)
+time.sleep(1)
+stop()
+

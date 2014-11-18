@@ -1,0 +1,11 @@
+import Adafruit_BBIO.PWM as PWM
+import Adafruit_BBIO.GPIO as GPIO
+
+import time
+PWM.start("P8_46", 0)
+PWM.start("P8_36", 0)
+PWM.start("P8_45", 0)
+PWM.start("P8_34", 0)
+
+   
+

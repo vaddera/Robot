@@ -1,67 +1,77 @@
 import Adafruit_BBIO.PWM as PWM
+import Adafruit_BBIO.GPIO as GPIO
+
 import time
 
-# Moving Left Wheel forward CCW:
-PWM.start("P8_46", 100)
-time.sleep(5)
-PWM.stop("P8_46")
+def stop():
+	print 'stop'
+	PWM.start("P8_46",0)
+        PWM.start("P8_36",0)
+        PWM.start("P8_45",0)
+        PWM.start("P8_34",0)
+	time.sleep(1)
+	return 
 
-time.sleep(2)
+def forward():
+	PWM.start("P8_46", 100)
+	PWM.start("P8_36", 100)
+	return	
 
-# Moving Left Wheel backward CW:
-PWM.start("P8_45", 100)
-time.sleep(5)
-PWM.stop("P8_45")
+def backward():
+        PWM.start("P8_34", 100)
+        PWM.start("P8_45", 100)
+	print 'backward'
+        return
 
-time.sleep(2)
+def left():
+        PWM.start("P8_46", 100)
+	print 'left'
+        return
+        
+def right():
+        PWM.start("P8_45", 100)
+	print 'right'
+        return
 
-# Moving Right Wheel forward CCW:
-PWM.start("P8_36", 100)
-time.sleep(5)
-PWM.stop("P8_36")
+def leftb():
+        PWM.start("P8_34", 100)
+        PWM.start("P8_46", 100)
+	print 'leftb'
+	return
 
-time.sleep(2)
+def rightb():
+        PWM.start("P8_45", 100)
+        PWM.start("P8_36", 100)
+	print 'rightb'
+	return
 
-# Moving Right Wheel backward CW:
-PWM.start("P8_34", 100)
-time.sleep(5)
-PWM.stop("P8_34")
+def leftb_delay(delay):
+	print 'left_d'
+        PWM.start("P8_34", 100)
+        PWM.start("P8_46", 100)
+	time.sleep(delay)
+	stop()        
+        return 
+    
+def rightb_delay(delay):
+	print 'rightb_d'
+        PWM.start("P8_45", 100)
+        PWM.start("P8_36", 100)	
+	time.sleep(delay)
+	stop()
+        return
 
-time.sleep(2)
+def right_delay(delay):
+	print 'right_delay'
+	right()
+	time.sleep(delay)
+	return
 
-# Moving forward:
-PWM.start("P8_46", 100)
-PWM.start("P8_36", 100)
-time.sleep(5)
-PWM.stop("P8_46")
-PWM.stop("P8_36")
+def left_delay(delay):
+	print 'left_delay'
+	left()
+	time.sleep(delay)
+	return
 
-time.sleep(2)
 
-# Reverse:
-PWM.start("P8_45", 100)
-PWM.start("P8_34", 100)
-time.sleep(5)
-PWM.stop("P8_45")
-PWM.stop("P8_34")
-
-time.sleep(2)
-
-# Turning Right:
-PWM.start("P8_46", 50)
-PWM.start("P8_34", 50)
-time.sleep(1)
-PWM.stop("P8_34")
-PWM.stop("P8_46")
-
-time.sleep(2)
-
-# Turning Left
-PWM.start("P8_36", 50)
-PWM.start("P8_45", 50)
-time.sleep(1)
-PWM.stop("P8_45")
-PWM.stop("P8_36")
-
-PWM.cleanup()
 
